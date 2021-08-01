@@ -50,6 +50,7 @@ namespace CarDealership.web.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult Index(string query)
         {
             SqlConnection conn = new SqlConnection();
