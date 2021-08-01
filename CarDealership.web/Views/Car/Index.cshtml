@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using CarDealership.DataAccess.Models;
+@model List<Car>
+<h2>Car's information</h2>
+<form asp-controller="Car" asp-action="Index" method="get">
+    <p><input type="text" name="query" value="@Context.Request.Query["query"]" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<table>
+    <tr>
+        <th>No.</th>
+        <th>Car Manufacturer</th>
+        <th>Ngan Luong</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td><a href="/Car/Delete/@item.Id" onclick="return confirm('Are you sure you wish to delete this shit ?');">Delete</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Car/Add/">Add new car</a><br /><br />
+<a href="/Car/Update/">Change details</a>
+
+@*<form id="st" action="/Home/Add" style="float: left;">
+    <h3>Add cars</h3>
+    <label for="Name">What car ?  </label> &#160; &nbsp;
+    <span><input type="text" id="CName" name="Name"><div id="alert1"></div></span><br>
+    <label for="Price">How much ? </label>&#160;
+    <span><input type="number" id="CPrice" name="Price"><div id="alert2"></div></span><br>
+    <input type="button" onclick="myFuntion()" value="Submit"><br><br>
+</form>
+
+<script>
+    function myFuntion() {
+        if (document.getElementById("CName").value.trim() == "") {
+            document.getElementById("alert1").innerHTML = "name wasn't inserted";
+            return false;
+        }
+        else if (document.getElementById("CPrice").value <= 0) {
+            document.getElementById("alert2").innerHTML = "price wasn't inserted";
+            return false;
+        }
+        document.getElementById("st").submit();
+    }
+</script>
+<form action="/Home/Update" style="float: right;">
+    <h4>Change details</h4>
+    <label for="No">Insert into ?  </label> &nbsp;
+    <input type="number" id="No" name="No"><br>
+    <label for="Name">What car ?  </label> &#160; &nbsp;
+    <input type="text" id="Name" name="Name"><br>
+    <label for="Price">How much ? </label>&#160;
+    <input type="number" id="Price" name="Price"><br>
+    <input type="submit" value="Submit">
+</form>*@

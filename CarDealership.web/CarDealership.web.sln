@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealership.web", "CarDealership.web.csproj", "{48AF10F2-5263-4FE7-9173-FA39E289867E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealership.DataAccess", "..\CarDealership.DataAccess\CarDealership.DataAccess.csproj", "{350ED96F-03D9-4D22-9EE0-9E2EFDEBA3DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48AF10F2-5263-4FE7-9173-FA39E289867E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48AF10F2-5263-4FE7-9173-FA39E289867E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48AF10F2-5263-4FE7-9173-FA39E289867E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48AF10F2-5263-4FE7-9173-FA39E289867E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350ED96F-03D9-4D22-9EE0-9E2EFDEBA3DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350ED96F-03D9-4D22-9EE0-9E2EFDEBA3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350ED96F-03D9-4D22-9EE0-9E2EFDEBA3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350ED96F-03D9-4D22-9EE0-9E2EFDEBA3DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5AC8D78E-46A9-4B72-A7B6-ACC23558520A}
+	EndGlobalSection
+EndGlobal

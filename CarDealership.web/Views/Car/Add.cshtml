@@ -1,0 +1,23 @@
+﻿
+<form id="st" action="/Car/Add" style="float: left;">
+    <h3>Add cars</h3>
+    <label for="Name">What car ?  </label> &#160; &nbsp;
+    <input type="text" id="CName" name="Name"> <span id="alert1" style="color: red"></span> <br>
+    <label for="Price">How much ? </label>&#160;
+    <input type="number" id="CPrice" name="Price"> <span id="alert2" style="color: red"></span> <br>
+    <input type="button" onclick="myFuntion()" value="Submit"><br><br>
+</form>
+
+<script>
+    function myFuntion() {
+        if (document.getElementById("CName").value.trim() == "") {
+            document.getElementById("alert1").innerHTML = "name wasn't inserted";
+            return false;
+        }
+        else if (document.getElementById("CPrice").value <= 0) {
+            document.getElementById("alert2").innerHTML = "price wasn't inserted";
+            return false;
+        }
+        document.getElementById("st").submit();
+    }
+</script>

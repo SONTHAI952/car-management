@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Customer information";
+}
+@using CarDealership.DataAccess.Models;
+@model List<Customer>
+<h2>Customer's information</h2>
+<form asp-controller="Customer" asp-action="Index" method="get">
+    <p><input type="text" name="query" value="@Context.Request.Query["query"]" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<table>
+    <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Gender</td>
+            <td><a href="/Customer/Delete/@item.Id" onclick="return confirm('Are you sure you wish to delete this man ?');">Delete</a></td>
+        </tr>
+    }
+</table>
+<br />
+<form id="stt" action="/Customer/Add" style="float: left;">
+    <h3>Add Customer</h3>
+    <label for="Name">Name   </label> &#160; &nbsp;
+    <span><input type="text" id="CName" name="Name"><div id="alert1" style="color:red"></div></span><br>
+    <label for="Gender">Gender </label>&#160;
+    <span><input type="text" id="CGender" name="Gender"><div id="alert2"></div></span><br>
+    <input type="button" onclick="myFuntion()" value="Submit"><br><br>
+</form>
+
+<script>
+    function myFuntion() {
+        if (document.getElementById("CName").value.trim() == "") {
+            document.getElementById("alert1").innerHTML = "Name wasn't inserted";
+            return false;
+        }
+        else if (document.getElementById("CGender").value.trim() == "") {
+            document.getElementById("alert2").innerHTML = "Gender wasn't inserted";
+            return false;
+        }
+        document.getElementById("stt").submit();
+    }
+</script>
+<form action="/Customer/Update" style="float: right;">
+    <h4>Change details</h4>
+    <label for="Id">Id update  </label> &nbsp;
+    <input type="number" id="Id" name="Id"><br>
+    <label for="Name">Who?  </label> &#160; &nbsp;
+    <input type="text" id="Name" name="Name"><br>
+    <label for="Gender">What Gender ? </label>&#160;
+    <input type="text" id="Gender" name="Gender"><br>
+    <input type="submit" value="Submit">
+</form>
