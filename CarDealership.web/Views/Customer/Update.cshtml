@@ -1,0 +1,18 @@
+﻿@using CarDealership.DataAccess.Models
+@model Customer
+    [<a href="/Customer/Index/" style="color:blue">back</a>]
+    </br>
+     <form action="/Customer/Update" method="post">
+         <h4>Change details</h4>
+         <input type="hidden" id="Id" value="@Model.Id" name="Id"><br>
+         <label for="Name">Name  </label> &#160; &nbsp;
+         <input type="text" id="Name" name="Name" value="@Model.Name"><br>
+         <label for="Gender">Gender </label>&#160;
+         <select name="Gender" id="CGender" >
+             <option >@Model.Gender</option>
+             <option value="male">Male</option>
+             <option value="female">Female</option>
+         </select>
+             <br>
+             <input type="submit" value="Submit">
+     </form>

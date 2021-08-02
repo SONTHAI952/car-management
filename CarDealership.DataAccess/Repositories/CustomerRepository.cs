@@ -53,9 +53,28 @@ namespace CarDealership.DataAccess.Repositories
             _conn.Close();
         }
 
+        public Customer GetCustomer(int id)
+        {
+            var query = "select top 1 * from Customer where Id =" + id;
+            SqlCommand cm = new SqlCommand(query, _conn);
+            var customer = new Customer();
+            _conn.Open();
+            SqlDataReader reader = cm.ExecuteReader();
+            {
+                while (reader.Read())
+                {
+                    customer.Id = (int)reader["Id"];
+                    customer.Name = reader["Name"].ToString();
+                    customer.Gender = reader["Gender"].ToString();
+                    break;
+                }
+            }
+            _conn.Close();
+            return customer;
+        }
         public void Update(Customer customer)
         {
-            var query = "UPDATE Car SET Name = '" + customer.Name + "', Gender = '" + customer.Gender + "' WHERE Id = " + customer.Id;
+            var query = "UPDATE Customer SET Name = '" + customer.Name + "', Gender = '" + customer.Gender + "' WHERE Id = " + customer.Id;
             SqlCommand cm = new SqlCommand(query, _conn);
             _conn.Open();
             cm.ExecuteNonQuery();

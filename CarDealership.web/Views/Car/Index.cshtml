@@ -10,8 +10,7 @@
         <input type="submit" value="Search" />
     </p>
 </form>
-<a href="/Car/Add/">Add new car</a> <span>/</span> 
-
+<a href="/Car/Add/">+ Add car</a>
 <table>
     <tr>
         <th>No.</th>
@@ -22,13 +21,13 @@
     </tr>
     @foreach (var item in Model)
     {
-<tr>
-    <td id="test">@item.Id</td>
-    <td>@item.Name</td>
-    <td>@item.Price.ToString("N0") $</td>
-    <td><a href="/Car/Delete/@item.Id" onclick="return confirm('Are you sure you wish to delete this shit ?');">Delete</a></td>
-    <td><a href="/Car/Update/@item.Id" >Edit</a></td>
-</tr>
+        <tr>
+            <td id="test">@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Price.ToString("N0") $</td>
+            <td><a href="/Car/Delete/@item.Id" onclick="return confirm('Are you sure you wish to delete this shit ?');">Delete</a></td>
+            <td><a href="/Car/Update/@item.Id">Edit</a></td>
+        </tr>
     }
 </table>
 <br />

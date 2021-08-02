@@ -3,14 +3,17 @@ using System.Data.SqlClient;
 using CarDealership.DataAccess.Repositories;
 using CarDealership.DataAccess.Models;
 
-
-
 namespace CarDealership.web.Controllers
 {
     public class CustomerController : Controller
     {
-        
         private ICustomerRepository _customerRepository;
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult Add(Customer customer)
@@ -22,12 +25,6 @@ namespace CarDealership.web.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public IActionResult Add()
-        {
-            return View();
-        }
-
         public IActionResult Delete(int id)
         {
             SqlConnection conn = new SqlConnection();
@@ -37,6 +34,16 @@ namespace CarDealership.web.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Server=(local);Database=DB1;Trusted_Connection=True;";
+            _customerRepository = new CustomerRepository(conn);
+            return View(_customerRepository.GetCustomer(id));
+        }
+
+        [HttpPost]
         public IActionResult Update(Customer customer)
         {
             SqlConnection conn = new SqlConnection();
@@ -46,6 +53,7 @@ namespace CarDealership.web.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult Index(string query)
         {
             SqlConnection conn = new SqlConnection();

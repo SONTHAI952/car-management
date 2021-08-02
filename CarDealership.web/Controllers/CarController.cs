@@ -1,9 +1,7 @@
-﻿using CarDealership.web.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using CarDealership.DataAccess.Repositories;
 using CarDealership.DataAccess.Models;
-
 
 namespace CarDealership.web.Controllers
 {
@@ -35,6 +33,7 @@ namespace CarDealership.web.Controllers
             _carRepository.Delete(id);
             return RedirectToAction("Index");
         }
+
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -43,6 +42,7 @@ namespace CarDealership.web.Controllers
             _carRepository = new CarRepository(conn);
             return View(_carRepository.GetCar(id));
         }
+
         [HttpPost]
         public IActionResult Update(Car car)
         {

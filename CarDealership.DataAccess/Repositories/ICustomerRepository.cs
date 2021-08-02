@@ -5,6 +5,7 @@ namespace CarDealership.DataAccess.Repositories
 {
     public interface ICustomerRepository
     {
+        Customer GetCustomer(int id);
         IList<Customer> GetCustomers(string name);
         void Delete(int id);
 
