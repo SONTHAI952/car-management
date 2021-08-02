@@ -7,6 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealership.web", "CarDea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarDealership.DataAccess", "..\CarDealership.DataAccess\CarDealership.DataAccess.csproj", "{350ED96F-03D9-4D22-9EE0-9E2EFDEBA3DD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{5CE9398A-EAC9-4C54-BABB-E948A7B3B12B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{426C7336-9AEE-42A9-98AA-56E5165EB5AA}"
+	ProjectSection(SolutionItems) = preProject
+		Car.sql = Car.sql
+		Customer.sql = Customer.sql
+		Selling.sql = Selling.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +33,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{426C7336-9AEE-42A9-98AA-56E5165EB5AA} = {5CE9398A-EAC9-4C54-BABB-E948A7B3B12B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5AC8D78E-46A9-4B72-A7B6-ACC23558520A}

@@ -36,9 +36,12 @@ namespace CarDealership.web.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult Update()
+        public IActionResult Update(int id)
         {
-            return View();
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Server=(local);Database=DB1;Trusted_Connection=True;";
+            _carRepository = new CarRepository(conn);
+            return View(_carRepository.GetCar(id));
         }
         [HttpPost]
         public IActionResult Update(Car car)

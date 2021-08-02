@@ -1,8 +1,9 @@
-﻿
-<form id="st" action="/Car/Add" style="float: left;">
+﻿[<a href="/Car/Index/" style="color:blue">back</a>]
+</br>
+<form id="st" action="/Car/Add" method="post" >
     <h3>Add cars</h3>
     <label for="Name">What car ?  </label> &#160; &nbsp;
-    <input type="text" id="CName" name="Name"> <span id="alert1" style="color: red"></span> <br>
+    <input type="text" id="CName" name="Name" placeholder="Enter car name"> <span id="alert1" style="color: red"></span> <br>
     <label for="Price">How much ? </label>&#160;
     <input type="number" id="CPrice" name="Price"> <span id="alert2" style="color: red"></span> <br>
     <input type="button" onclick="myFuntion()" value="Submit"><br><br>

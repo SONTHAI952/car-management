@@ -5,6 +5,7 @@ namespace CarDealership.DataAccess.Repositories
 {
     public interface ICarRepository
     {
+        Car GetCar(int id);
         IList<Car> GetCars(string name);
         void Delete(int id);
 

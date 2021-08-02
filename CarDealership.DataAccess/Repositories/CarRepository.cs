@@ -34,6 +34,25 @@ namespace CarDealership.DataAccess.Repositories
             _conn.Close();
             return cars;
         }
+        public Car GetCar(int id)
+        {
+            var query = "select top 1 * from Car where Id = " + id;
+            SqlCommand cm = new SqlCommand(query, _conn);
+            var car = new Car();
+            _conn.Open();
+            SqlDataReader reader = cm.ExecuteReader();
+            {
+                while (reader.Read())
+                {
+                    car.Id = (int)reader["Id"];
+                    car.Name = reader["Name"].ToString();
+                    car.Price = (int)reader["Price"];
+                    break;
+                }
+            }
+            _conn.Close();
+            return car;
+        }
 
         public void Add(Car car)
         {
@@ -62,5 +81,6 @@ namespace CarDealership.DataAccess.Repositories
             _conn.Close();
         }
 
+        
     }
 }
